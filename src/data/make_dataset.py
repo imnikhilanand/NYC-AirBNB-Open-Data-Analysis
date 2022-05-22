@@ -39,7 +39,7 @@ class clean_data:
     
     # save the data
     def save_dataset(self,name_of_the_file):
-        self.data.to_csv(name_of_the_file, drop_index=True)
+        self.data.to_csv(name_of_the_file, index=False)
 
 
 # calling the objeect with the dataset   
