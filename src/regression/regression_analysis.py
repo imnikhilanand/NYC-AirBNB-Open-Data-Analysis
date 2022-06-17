@@ -291,7 +291,7 @@ ref['y_pred'] = est_6.predict(X[['const',
 """ check for linearity - residual plot with response """
 plt.ylim(-150, 150)
 plt.scatter(ref['y'], ref['residual'])
-plt.axhline(y = 0.5, color='black', linestyle = '--')
+plt.axhline(y = 0.0, color='black', linestyle = '--')
 plt.plot()
 
 """ Since we can see the residuals are negative in for the datapoints at the 
@@ -389,7 +389,7 @@ ref_2['y_pred'] = est_7.predict(X[['const',
 """ check for linearity - residual plot with response """
 plt.ylim(-150, 150)
 plt.scatter(ref_2['y'], ref_2['residual'])
-plt.axhline(y = 0.5, color='black', linestyle = '--')
+plt.axhline(y = 0.0, color='black', linestyle = '--')
 plt.plot()
 
 """ There is still some upward trend remaining in the data but it had been reduced significantly """
@@ -479,8 +479,91 @@ rmse(predicted_y, y_1_4)
 
 """
 
+corr = X[['const',
+          'Entire home/apt',
+          'number_of_reviews',
+          'calculated_host_listings_count',
+          'longitude_2',
+          'latitude_2',
+          'number_of_reviews_2',
+          'calculated_host_listings_count_2',
+          'longitude_3',
+          'latitude_3',
+          'calculated_host_listings_count_3',
+          'longitude_chlc',
+          'latitude_number_of_reviews',
+          'latitude_chls',
+          'number_of_reviews_chls',
+          'manhattan_entire_apt_num_reviews',
+          'manhattan_entire_apt_available',
+          'manhattan_long_lat',
+          'entire_home_long_lat_manhattan',
+          'long_2_lat_2_number_of_reviews']].corr()
+# strong correlation is identified between predictors and their squared and cubed terms
+
+""" lets explore the linearity, independence, normal and constant error variance criteria for the 6th model """
+
+# create a dataframe to store all the relevant data
+ref_3 = X[['const',
+          'Entire home/apt',
+          'number_of_reviews',
+          'calculated_host_listings_count',
+          'longitude_2',
+          'latitude_2',
+          'number_of_reviews_2',
+          'calculated_host_listings_count_2',
+          'longitude_3',
+          'latitude_3',
+          'calculated_host_listings_count_3',
+          'longitude_chlc',
+          'latitude_number_of_reviews',
+          'latitude_chls',
+          'number_of_reviews_chls',
+          'manhattan_entire_apt_num_reviews',
+          'manhattan_entire_apt_available',
+          'manhattan_long_lat',
+          'entire_home_long_lat_manhattan',
+          'long_2_lat_2_number_of_reviews']]
+ref_3['residual'] = est_8.resid
+ref_3['y'] = y_1_4
+ref_3['y_pred'] = est_8.predict(X[['const',
+                                  'Entire home/apt',
+                                  'number_of_reviews',
+                                  'calculated_host_listings_count',
+                                  'longitude_2',
+                                  'latitude_2',
+                                  'number_of_reviews_2',
+                                  'calculated_host_listings_count_2',
+                                  'longitude_3',
+                                  'latitude_3',
+                                  'calculated_host_listings_count_3',
+                                  'longitude_chlc',
+                                  'latitude_number_of_reviews',
+                                  'latitude_chls',
+                                  'number_of_reviews_chls',
+                                  'manhattan_entire_apt_num_reviews',
+                                  'manhattan_entire_apt_available',
+                                  'manhattan_long_lat',
+                                  'entire_home_long_lat_manhattan',
+                                  'long_2_lat_2_number_of_reviews']])
+
+""" check for linearity - residual plot with response """
+plt.ylim(-150, 150)
+plt.scatter(ref_3['y'], ref_3['residual'])
+plt.axhline(y = 0.0, color='black', linestyle = '--')
+plt.plot()
 
 
+""" The data seem completely linear.
+    It does not seem that there is any variance, let's check through statistical test 
+"""
+
+""" Check the equal variance using Levene's test"""
+# splitting the errors in two groups based on number of reviews
+grp_1 = ref_3.query('number_of_reviews < 5')['residual']
+grp_2 = ref_3.query('number_of_reviews >= 5')['residual']
+levene(grp_1, grp_2, center='median')
+# this results in non equal variance as the p value is 0.977
 
 
 
