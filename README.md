@@ -28,7 +28,7 @@ Observations:
 
 **Airbnb's per user
 
-<img src="pictures/num_of_houses_per_user.jpg" alt="num_of_houses_per_user">
+<img src="pictures/num_of_houses_per_user.JPG" alt="num_of_houses_per_user">
 <br>
 <img src="pictures/num_of_houses_per_user_graph.png" alt="num_of_houses_per_user_graph">
 <br>
@@ -41,7 +41,7 @@ Observations:
 
 **Distribution of Airbnb's based on the neighborhood
 
-<img src="pictures/num_of_airbnbs_per_neighborhood.jpg" alt="num_of_houses_per_user">
+<img src="pictures/num_of_airbnbs_per_neighborhood.JPG" alt="num_of_houses_per_user">
 <br>
 <img src="pictures/num_of_airbnbs_per_neighborhood_graph.png" alt="num_of_houses_per_user_graph">
 <br>
@@ -67,7 +67,7 @@ Observations:
 
 **Distribution of Airbnb's based on the price
 
-<img src="pictures/KDE_plot_price.png" alt="KDE_plot_price,png">
+<img src="pictures/KDE_plot_price.png" alt="KDE_plot_price.png">
 
 Observations:
 
