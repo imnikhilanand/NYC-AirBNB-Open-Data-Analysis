@@ -12,6 +12,7 @@ import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import seaborn as sns
 from statsmodels.tools.eval_measures import rmse
+from scipy.stats import levene
 
 # importing the dataset
 data = pd.read_csv("../../data/data_set_regression_analysis.csv")
@@ -343,271 +344,169 @@ rmse(predicted_y, sqrt_y)
 """
 
 # checking the correlation
-corr = X[['const','Entire home/apt','Manhattan','longitude','latitude','number_of_reviews','calculated_host_listings_count']].corr()
-# no strong correlation is identified between different predictors
+corr = X[['const',
+          'Entire home/apt',
+          'longitude',
+          'latitude',
+          'Manhattan',
+          'number_of_reviews',
+          'calculated_host_listings_count',
+          'longitude_2',
+          'latitude_2',
+          'number_of_reviews_2',
+          'calculated_host_listings_count_2']].corr()
+# strong correlation is identified between predictors and their squared terms
 
 
 """ lets explore the linearity, independence, normal and constant error variance criteria for the 6th model """
 
 # create a dataframe to store all the relevant data
-ref = X[['const',
-         'Entire home/apt',
-         'Manhattan',
-         'longitude',
-         'latitude',
-         'number_of_reviews',
-         'calculated_host_listings_count']]
-ref['residual'] = est_6.resid
-ref['y'] = y
-ref['y_pred'] = est_6.predict(X[['const',
-                                 'Entire home/apt',
-                                 'Manhattan',
-                                 'longitude',
-                                 'latitude',
-                                 'number_of_reviews',
-                                 'calculated_host_listings_count']])
+ref_2 = X[['const',
+          'Entire home/apt',
+          'longitude',
+          'latitude',
+          'Manhattan',
+          'number_of_reviews',
+          'calculated_host_listings_count',
+          'longitude_2',
+          'latitude_2',
+          'number_of_reviews_2',
+          'calculated_host_listings_count_2']]
+ref_2['residual'] = est_7.resid
+ref_2['y'] = sqrt_y
+ref_2['y_pred'] = est_7.predict(X[['const',
+                                  'Entire home/apt',
+                                  'longitude',
+                                  'latitude',
+                                  'Manhattan',
+                                  'number_of_reviews',
+                                  'calculated_host_listings_count',
+                                  'longitude_2',
+                                  'latitude_2',
+                                  'number_of_reviews_2',
+                                  'calculated_host_listings_count_2']])
 
-
-
-# based on the p values dropped few predictors from the above equation
-# building the model
-est_6_2 = sm.OLS(sqrt_y, X[['const',
-                         'Entire home/apt',
-                         'longitude',
-                         'latitude',
-                         'longitude_2',
-                         'latitude_2',
-                         'number_of_reviews_2',
-                         'calculated_host_listings_count_2']]).fit()
-
-est_6_2.summary()
-
-ref['y_pred_2'] = est_6_2.predict(X[['const',
-                         'Entire home/apt',
-                         'longitude',
-                         'latitude',
-                         'longitude_2',
-                         'latitude_2',
-                         'number_of_reviews_2',
-                         'calculated_host_listings_count_2']])
-
-ref['residual_2'] = est_6_2.resid
-ref['sqrt_y'] = sqrt_y
-
-# check for linearity and variance - residual plot with response
+""" check for linearity - residual plot with response """
 plt.ylim(-150, 150)
-plt.scatter(ref['sqrt_y'], ref['residual_2'])
+plt.scatter(ref_2['y'], ref_2['residual'])
 plt.axhline(y = 0.5, color='black', linestyle = '--')
 plt.plot()
 
-# check for linearity and variance - residual plot with predictor longitude
-plt.ylim(-150, 150)
-plt.scatter(ref['longitude'], ref['residual_2'])
-plt.axhline(y = 0.5, color='black', linestyle = '--')
-plt.plot()
+""" There is still some upward trend remaining in the data but it had been reduced significantly """
 
-# check for linearity and variance - residual plot with predictor latitude
-plt.ylim(-150, 150)
-plt.scatter(ref['latitude'], ref['residual_2'])
-plt.axhline(y = 0.5, color='black', linestyle = '--')
-plt.plot()
-
-# check for linearity and variance - residual plot with predictor number_of_reviews
-plt.ylim(-150, 150)
-plt.scatter(ref['number_of_reviews'], ref['residual_2'])
-plt.axhline(y = 0.5, color='black', linestyle = '--')
-plt.plot()
-
-# check for linearity and variance - residual plot with predictor calculated_host_listings_count
-plt.ylim(-150, 150)
-plt.scatter(ref['calculated_host_listings_count'], ref['residual_2'])
-plt.axhline(y = 0.5, color='black', linestyle = '--')
-plt.plot()
-
-# statistical test to check variance using LEVENE TEST
-from scipy.stats import levene
+""" Check the equal variance using Levene's test"""
 # splitting the errors in two groups based on number of reviews
-grp_1 = ref.query('number_of_reviews < 3')['residual_2']
-grp_2 = ref.query('number_of_reviews >= 3')['residual_2']
+grp_1 = ref_2.query('number_of_reviews < 5')['residual']
+grp_2 = ref_2.query('number_of_reviews >= 5')['residual']
 levene(grp_1, grp_2, center='median')
-# returned a p value of 0.00027 - we can say that distribution does not have a constant variances
-
-# taking a small sample to see the trend
-ref_temp = ref.sample(30, random_state=12)
-plt.ylim(-10, 10)
-plt.scatter(ref_temp['sqrt_y'], ref_temp['residual_2'])
-plt.axhline(y = 0.5, color='black', linestyle = '--')
-plt.plot()
-# since we can still observe an upward trend we can transform the variables again with some other expressions
+# this results in non equal variance as the p value is 1.8e-105
 
 
-
-###############################################################################
-######## 4th power transformation #############################################
-###############################################################################
-
-# transforming the results 
-rt_4_y = np.power(data_sample['price'],0.25)
-
-# building the model
-est_7 = sm.OLS(rt_4_y, X[['const',
-                         'Entire home/apt',
-                         'longitude',
-                         'latitude',
-                         'number_of_reviews',
-                         'calculated_host_listings_count',
-                         'longitude_2',
-                         'latitude_2',
-                         'number_of_reviews_2',
-                         'calculated_host_listings_count_2']]).fit()
-
-# summarizing the model
-est_7.summary()
-
-# adding the columns
-ref['residual_3'] = est_7.resid
-ref['rt_4_y'] = rt_4_y
-
-# checking the residuals
-ref_temp = ref.sample(30, random_state=12)
-plt.ylim(-10, 10)
-plt.scatter(ref_temp['rt_4_y'], ref_temp['residual_3'])
-plt.axhline(y = 0.5, color='black', linestyle = '--')
-plt.plot()
-
-###############################################################################
-######## 3rd power transformation #############################################
-###############################################################################
+# since the plot is not linear we have to transform the predictors and/or results 
 
 X["longitude_3"] = X["longitude_2"]*X["longitude"]
 X["latitude_3"] = X["latitude_2"]*X["latitude"]
-X["number_of_reviews_3"] = X["number_of_reviews_2"]*X["number_of_reviews"]
 X["calculated_host_listings_count_3"] = X["calculated_host_listings_count_2"]*X["calculated_host_listings_count"]
-
-X["longitude_latitude"] = X["longitude"]*X["latitude"]
-X["longitude_number_of_reviews"] = X["longitude"]*X["number_of_reviews"]
 X["longitude_chlc"] = X["longitude"]*X["calculated_host_listings_count"]
-
 X["latitude_number_of_reviews"] = X["number_of_reviews"]*X["latitude"]
 X["latitude_chls"] = X["calculated_host_listings_count"]*X["latitude"]
-
 X["number_of_reviews_chls"] = X["number_of_reviews"]*X['calculated_host_listings_count_3']
-
-X["manhattan_number_of_reviews"] = X["number_of_reviews"]*X['Manhattan']
 X["manhattan_entire_apt_num_reviews"] = X["Entire home/apt"]*X['Manhattan']*X['number_of_reviews']
 X["manhattan_entire_apt_available"] = X["Entire home/apt"]*X['Manhattan']*X['availability_365']
 X["manhattan_long_lat"] = X["longitude"]*X['Manhattan']*X['latitude']
-X["entire_home_long_lat"] = X["longitude"]*X['Entire home/apt']*X['latitude']
 X["entire_home_long_lat_manhattan"] = X["longitude"]*X['Entire home/apt']*X['latitude']*X['Manhattan']
 
-X["entire_home_long_2_lat_2"] = X["longitude_2"]*X['Entire home/apt']*X['latitude_2']
-X["long_2_lat_2"] = X["longitude_2"]*X['latitude_2']
-X["long_2_lat_2_number_of_reviews"] = X["longitude_2"]*X['latitude_2']*X['number_of_reviews_2']
-X["long_3_lat_3"] = X["longitude_2"]*X['latitude_2']*X["longitude"]*X['latitude']
-
-X["long_4_lat_4"] = X["long_3_lat_3"]*X['latitude']*X["longitude"]
-
-
 # transforming the results 
-rt_4_y = np.power(data_sample['price'],1/4)
-
-
-X_test = X[['const',
-                         'Entire home/apt',
-                         'longitude',
-                         'latitude',
-                         'number_of_reviews',
-                         'calculated_host_listings_count',
-                         'longitude_2',
-                         'latitude_2',
-                         'number_of_reviews_2',
-                         'calculated_host_listings_count_2',
-                         'longitude_3',
-                         'latitude_3',
-                         'number_of_reviews_3',
-                         'calculated_host_listings_count_3',
-                         'longitude_latitude',
-                         'longitude_number_of_reviews',
-                         'longitude_chlc',
-                         'latitude_number_of_reviews',
-                         'latitude_chls',
-                         'number_of_reviews_chls',
-                         'Manhattan',
-                         'manhattan_entire_apt_num_reviews',
-                         'manhattan_entire_apt_available',
-                         'manhattan_long_lat',
-                         'entire_home_long_lat',
-                         'entire_home_long_lat_manhattan',
-                         'entire_home_long_2_lat_2',
-                         'long_2_lat_2',
-                         'long_2_lat_2_number_of_reviews',
-                         'long_3_lat_3']]
-
-
-X_test = X[['const',
-                         'Entire home/apt',
-                         'number_of_reviews',
-                         'calculated_host_listings_count',
-                         'longitude',
-                         'latitude',
-                         'longitude_2',
-                         'latitude_2',
-                         'number_of_reviews_2',
-                         'calculated_host_listings_count_2',
-                         'longitude_3',
-                         'latitude_3',
-                         'number_of_reviews_3',
-                         'calculated_host_listings_count_3',
-                         'longitude_latitude',
-                         'longitude_chlc',
-                         'latitude_number_of_reviews',
-                         'latitude_chls',
-                         'number_of_reviews_chls',
-                         'manhattan_entire_apt_num_reviews',
-                         'manhattan_entire_apt_available',
-                         'manhattan_long_lat',
-                         'entire_home_long_lat',
-                         'entire_home_long_lat_manhattan',
-                         'entire_home_long_2_lat_2',
-                         'long_2_lat_2_number_of_reviews'
-                         ]]
-
-
-X_test = X[['const',
-                         'Entire home/apt',
-                         'number_of_reviews',
-                         'calculated_host_listings_count',
-                         'longitude_2',
-                         'latitude_2',
-                         'number_of_reviews_2',
-                         'calculated_host_listings_count_2',
-                         'longitude_3',
-                         'latitude_3',
-                         'calculated_host_listings_count_3',
-                         'longitude_chlc',
-                         'latitude_number_of_reviews',
-                         'latitude_chls',
-                         'number_of_reviews_chls',
-                         'manhattan_entire_apt_num_reviews',
-                         'manhattan_entire_apt_available',
-                         'manhattan_long_lat',
-                         'entire_home_long_lat_manhattan',
-                         'long_2_lat_2_number_of_reviews'
-                         ]]
-
-
-corr = X_test.corr()
+y_1_4 = np.power(data_sample['price'],1/4)
 
 # assinging weights for least squared regression
-"""
-w_n = np.ones(3000)
-w_n[0:2990] = 5
-w_n[2990:] = 1/8 """
-
 w_n = np.ones(3000)
 w_n[0:2850] = 9
 w_n[2850:] = 1/9
+
+est_8 = sm.WLS(y_1_4, 
+               X[['const',
+                'Entire home/apt',
+                'number_of_reviews',
+                'calculated_host_listings_count',
+                'longitude_2',
+                'latitude_2',
+                'number_of_reviews_2',
+                'calculated_host_listings_count_2',
+                'longitude_3',
+                'latitude_3',
+                'calculated_host_listings_count_3',
+                'longitude_chlc',
+                'latitude_number_of_reviews',
+                'latitude_chls',
+                'number_of_reviews_chls',
+                'manhattan_entire_apt_num_reviews',
+                'manhattan_entire_apt_available',
+                'manhattan_long_lat',
+                'entire_home_long_lat_manhattan',
+                'long_2_lat_2_number_of_reviews']], weights=1/w_n**2).fit()
+
+est_8.summary()
+
+# lets check the RMSE score
+predicted_y = est_8.predict(X[['const',
+                            'Entire home/apt',
+                            'number_of_reviews',
+                            'calculated_host_listings_count',
+                            'longitude_2',
+                            'latitude_2',
+                            'number_of_reviews_2',
+                            'calculated_host_listings_count_2',
+                            'longitude_3',
+                            'latitude_3',
+                            'calculated_host_listings_count_3',
+                            'longitude_chlc',
+                            'latitude_number_of_reviews',
+                            'latitude_chls',
+                            'number_of_reviews_chls',
+                            'manhattan_entire_apt_num_reviews',
+                            'manhattan_entire_apt_available',
+                            'manhattan_long_lat',
+                            'entire_home_long_lat_manhattan',
+                            'long_2_lat_2_number_of_reviews']])
+
+rmse(predicted_y, y_1_4)
     
+"""   
+    R Sq value: 0.646
+    Adj R Sq value: 0.644
+    RMSE: 0.355
+
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # building the model
 est_8 = sm.WLS(rt_4_y, X_test, weights=1/w_n**2).fit()
