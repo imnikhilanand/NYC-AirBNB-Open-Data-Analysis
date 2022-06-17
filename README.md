@@ -75,3 +75,30 @@ Observations:
 - The mean price of Airbnb's are around $100.
 - The price of most of the AirBNB's are concentrated around the $100. 
 - A versy small percentage of AirBNB's have higher price than $300.
+
+<b>Distribution of Airbnb's based on the price in different neighborhoods</b>
+
+<img src="pictures/KDE_plot_price_neighborhood.png" alt="KDE_plot_price.png">
+
+Observations:
+
+- The mean price of Airbnb's in Manhattan is the highest.
+
+- The mean price of Airbnb's are slightly lower in Brooklyn than Manhattan and the most of them are concentrated around the mean.
+
+<b>Region and Airbnb's</b>
+
+<img src="pictures/KDE_plot_price_neighborhood.png" alt="KDE_plot_price.png">
+
+<b>Regionwise Room type</b>
+
+<img src="pictures/types_of_room_region.png" alt="KDE_plot_price.png">
+
+<b>Availability of rooms</b>
+
+<img src="pictures/availablity_region.png" alt="KDE_plot_price.png">
+
+<b>Scatterplot of features</b>
+
+<img src="pictures/scatterplot.png" alt="KDE_plot_price.png">
+
