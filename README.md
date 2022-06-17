@@ -17,7 +17,7 @@ What can we learn from predictions? (ex: locations, prices, reviews, etc)
 Which hosts are the busiest and why?
 Is there any noticeable difference of traffic among different areas and what could be the reason for it?
 
-**Exploratory Data Analysis
+<b>Exploratory Data Analysis</b>
 
 Observations:
 
@@ -26,7 +26,7 @@ Observations:
 - There are 48895 different airbnbs listed in the dataset.
 - There are 37457 different airbnb owners in the dataset.
 
-**Airbnb's per user
+<b>Airbnb's per user</b>
 
 <img src="pictures/num_of_houses_per_user.JPG" alt="num_of_houses_per_user">
 <br>
@@ -39,7 +39,7 @@ Observations:
 - ~9% of the owners have 2 airbnb's.
 - ~2.5% of the owners have 3 airbnb's.
 
-**Distribution of Airbnb's based on the neighborhood
+<b>Distribution of Airbnb's based on the neighborhood</b>
 
 <img src="pictures/num_of_airbnbs_per_neighborhood.JPG" alt="num_of_houses_per_user">
 <br>
@@ -52,11 +52,12 @@ Observations:
 - ~41% of the Airbnb's are located in Brooklyn.
 - ~15% of the Airbnb's are located in Bronx, Queens and Staten Island.
 
-**Distribution of Airbnb's based on the type of room
 
-<img src="pictures/types_of_room_in_airbnb.jpg" alt="num_of_houses_per_user">
+<b>Distribution of Airbnb's based on the type of room</b>
+
+<img src="pictures/types_of_rooms_in_airbnb.JPG" alt="num_of_houses_per_user">
 <br>
-<img src="pictures/types_of_room_in_airbnb_graph.png" alt="num_of_houses_per_user_graph">
+<img src="pictures/types_of_rooms_in_airbnb_graph.png" alt="num_of_houses_per_user_graph">
 <br>
 
 Observations:
@@ -65,7 +66,7 @@ Observations:
 - ~45% of the Airbnb's are Private room.
 - ~2% of the Airbnb's are shared rooms.
 
-**Distribution of Airbnb's based on the price
+<b>Distribution of Airbnb's based on the price</b>
 
 <img src="pictures/KDE_plot_price.png" alt="KDE_plot_price.png">
 
@@ -74,4 +75,3 @@ Observations:
 - The mean price of Airbnb's are around $100.
 - The price of most of the AirBNB's are concentrated around the $100. 
 - A versy small percentage of AirBNB's have higher price than $300.
-
