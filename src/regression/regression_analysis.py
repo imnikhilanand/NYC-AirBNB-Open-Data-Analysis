@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from statsmodels.tools.eval_measures import rmse
 from scipy.stats import levene
+import seaborn as sns
 
 # importing the dataset
 data = pd.read_csv("../../data/data_set_regression_analysis.csv")
@@ -553,6 +554,9 @@ plt.scatter(ref_3['y'], ref_3['residual'])
 plt.axhline(y = 0.0, color='black', linestyle = '--')
 plt.plot()
 
+""" Checking normality of residuals """
+sns.distplot(ref_3['residual'])
+# the residual is not normal 
 
 """ The data seem completely linear.
     It does not seem that there is any variance, let's check through statistical test 
@@ -565,168 +569,11 @@ grp_2 = ref_3.query('number_of_reviews >= 5')['residual']
 levene(grp_1, grp_2, center='median')
 # this results in non equal variance as the p value is 0.977
 
+""" 
 
+We can observe that the linear and variance conditions are met but normality is not.
 
+But linear regression is robust to normality of residuals for bigger datasets. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# building the model
-est_8 = sm.WLS(rt_4_y, X_test, weights=1/w_n**2).fit()
-
-est_8 = sm.OLS(rt_4_y, X_test).fit()
-
-from statsmodels.tools.eval_measures import rmse
-
-ypred = est_8.predict(X_test)
-
-rmse(rt_4_y, ypred)
-
-# summarizing the model
-est_8.summary() 
-
-ref = X_test.copy()
-
-# residual analusis
-ref['residual_8'] = est_8.resid
-ref['residual_8_2'] = np.power(est_8.resid,2)
-ref['residual_8_abs'] = np.absolute(est_8.resid)
-ref['rt_4_y'] = rt_4_y
-
-# checking the residuals
-ref_temp = ref.sample(50, random_state=12)
-plt.ylim(-10, 10)
-plt.scatter(ref_temp['rt_4_y'], ref_temp['residual_8'])
-plt.axhline(y = 0.0, color='black', linestyle = '--')
-plt.plot()
-
-
-# statistical test to check variance using LEVENE TEST
-from scipy.stats import levene
-# splitting the errors in two groups based on number of reviews
-grp_1 = ref.query('number_of_reviews < 5')['residual_8']
-grp_2 = ref.query('number_of_reviews >= 5')['residual_8']
-levene(grp_1, grp_2, center='median')
-
-
-from scipy import stats as stats_sw
-stats_sw.shapiro(ref['residual_8'])
-
-import seaborn as sns
-sns.distplot(ref['residual_8'])
-
-# final done
-
-###############################################################################
-####################### lets remove the outliers ##############################
-###############################################################################
-
-# get the influence
-influence = est_8.get_influence()
-
-# cooks values
-cooks_d = influence.cooks_distance[0]
-studentized_residuals = influence.resid_studentized_external
-studentized_residuals_i = influence.resid_studentized_internal
-leverage = influence.hat_matrix_diag
-
-X_test['cooks_distance'] = cooks_d
-X_test['studentized_residuals'] = studentized_residuals
-X_test['studentized_residuals_i'] = studentized_residuals_i
-X_test['leverage'] = leverage
-
-X_test_2 = X_test.query('studentized_residuals<3.0 and studentized_residuals>-3.0')
-X_test_2 = X_test.query('leverage<0.034')
-
-X_test_2_temp = pd.merge(X_test_2, rt_4_y, left_index=True, right_index=True)
-
-y_test_2_temp = X_test_2_temp['price']
-
-del X_test_2_temp['price']
-del X_test_2_temp['cooks_distance']
-del X_test_2_temp['studentized_residuals_i']
-del X_test_2_temp['studentized_residuals']
-del X_test_2_temp['leverage']
-
-w_n = np.ones(2895)
-w_n[0:2800] = 8
-w_n[2800:] = 1/8
-
-est_10 = sm.WLS(y_test_2_temp, X_test_2_temp, weights=1/w_n**2).fit()
-est_10 = sm.OLS(y_test_2_temp, X_test_2_temp).fit()
-
-est_10.summary()
-
-ypred2 = est_10.predict(X_test_2_temp)
-
-rmse(y_test_2_temp, ypred2)
-
-# residuals
-res_2 = X_test_2_temp.copy()
-res_2['residual_10'] = est_10.resid
-#ref['residual_8_2'] = np.power(est_8.resid,2)
-#ref['residual_8_abs'] = np.absolute(est_8.resid)
-#ref['rt_4_y'] = rt_4_y
-
-# checking the residuals
-ref_temp = ref.sample(50, random_state=12)
-plt.ylim(-10, 10)
-plt.scatter(y_test_2_temp, res_2['residual_10'])
-plt.axhline(y = 0.0, color='black', linestyle = '--')
-plt.plot()
-
-
-grp_1 = res_2.query('number_of_reviews < 3')['residual_10']
-grp_2 = res_2.query('number_of_reviews >= 3')['residual_10']
-levene(grp_1, grp_2, center='median')
-
-sns.distplot(res_2['residual_10'])
-stats_sw.shapiro(res_2['residual_10'])
-
-
-
-
-# adding the columns
-ref['residual_6'] = est_8.resid
-ref['rt_4_y'] = rt_4_y
-
-# checking the residuals
-ref_temp = ref.sample(50, random_state=12)
-plt.ylim(-10, 10)
-plt.scatter(ref_temp['rt_4_y'], ref_temp['residual_6'])
-plt.axhline(y = 0.5, color='black', linestyle = '--')
-plt.plot()
-
-# check for linearity and variance - residual plot with predictor longitude
-plt.ylim(-10, 10)
-plt.scatter(ref_temp['longitude'], ref_temp['residual_5'])
-plt.axhline(y = 0.5, color='black', linestyle = '--')
-plt.plot()
-
-
-from scipy.stats import levene
-# splitting the errors in two groups based on number of reviews
-grp_1 = ref.query('number_of_reviews < 3')['residual_6']
-grp_2 = ref.query('number_of_reviews >= 3')['residual_6']
-levene(grp_1, grp_2, center='median')
+"""
 
