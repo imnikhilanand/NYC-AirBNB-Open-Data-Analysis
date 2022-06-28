@@ -147,13 +147,13 @@ OLS Summary:
 <table>
 <tr><td>Dep. Variable:</td>                  <td>price</td>   <td>R-squared:</td>                       <td>0.477</td>
 <tr><td>Model:</td>                        <td>OLS</td>   <td>Adj. R-squared:</td>                  <td>0.476</td></tr>
-<tr><td>Method:</td>                 <td>Least Squares</td>   <td>F-statistic:                     454.3 </td></tr>
-<tr><td>Date:</td>                <td>Mon, 27 Jun 2022</td>   <td>Prob (F-statistic):               0.00 </td></tr>
-<tr><td>Time:</td>                        <td>22:22:09</td>   <td>Log-Likelihood:                -14665. </td></tr>
-<tr><td>No. Observations:</td>                <td>3000</td>   <td>AIC:                         2.934e+04 </td></tr>
-<tr><td>Df Residuals:</td>                    <td>2993</td>   <td>BIC:                         2.939e+04 </td></tr>
-<tr><td>Df Model:</td>                           <td>6</td>    <td></td>                                      </tr>
-<tr><td>Covariance Type:</td>            <td>nonrobust</td>        <td></td>                                  </tr>
+<tr><td>Method:</td>                 <td>Least Squares</td>   <td>F-statistic:</td>                  <td>454.3 </td></tr>
+<tr><td>Date:</td>                <td>Mon, 27 Jun 2022</td>   <td>Prob (F-statistic):</td>               <td>0.00 </td></tr>
+<tr><td>Time:</td>                        <td>22:22:09</td>   <td>Log-Likelihood:</td>                <td>-14665. </td></tr>
+<tr><td>No. Observations:</td>                <td>3000</td>   <td>AIC:</td>                         <td>2.934e+04 </td></tr>
+<tr><td>Df Residuals:</td>                    <td>2993</td>   <td>BIC:</td>                         <td>2.939e+04 </td></tr>
+<tr><td>Df Model:</td>                           <td>6</td>    <td></td>                                 <td></td>     </tr>
+<tr><td>Covariance Type:</td>            <td>nonrobust</td>        <td></td>                             <td></td>     </tr>
 
 </table>
 
