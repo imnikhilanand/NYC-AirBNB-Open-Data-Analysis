@@ -388,7 +388,7 @@ ref_2['y_pred'] = est_7.predict(X[['const',
                                   'calculated_host_listings_count_2']])
 
 """ check for linearity - residual plot with response """
-plt.ylim(-150, 150)
+plt.ylim(-20, 20)
 plt.scatter(ref_2['y'], ref_2['residual'])
 plt.axhline(y = 0.0, color='black', linestyle = '--')
 plt.plot()
