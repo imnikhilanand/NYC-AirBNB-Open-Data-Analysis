@@ -143,7 +143,7 @@ Results:
 
 OLS Summary:
 
-<table>
+<table style="all:unset">
 	<tr><td>Dep. Variable:</td>                  <td>price</td>   <td>R-squared:</td>                       <td>0.477</td>
 	<tr><td>Model:</td>                        <td>OLS</td>   <td>Adj. R-squared:</td>                  <td>0.476</td></tr>
 	<tr><td>Method:</td>                 <td>Least Squares</td>   <td>F-statistic:</td>                  <td>454.3 </td></tr>
