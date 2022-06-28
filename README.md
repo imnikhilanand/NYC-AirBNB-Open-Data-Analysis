@@ -143,7 +143,7 @@ Results:
 
 OLS Summary:
 
-<table style="all:unset">
+<table>
 	<tr><td>Dep. Variable:</td>                  <td>price</td>   <td>R-squared:</td>                       <td>0.477</td>
 	<tr><td>Model:</td>                        <td>OLS</td>   <td>Adj. R-squared:</td>                  <td>0.476</td></tr>
 	<tr><td>Method:</td>                 <td>Least Squares</td>   <td>F-statistic:</td>                  <td>454.3 </td></tr>
@@ -356,7 +356,7 @@ Observation:
 
 - The trend in the residuals have been removed significatly. There are some data points which have higher residual errors. 
 - The constant vaiance condition is met in this case. It can be seen from the Levene's test.
-- The normality condition of residuals is not met as there are some residuals which are outlier
+- The normality condition of residuals is not met as there are some residuals which are outlier. We can still move ahead with this model, as linear regressions are robust to normality condition.
 
 
 Future Score:
