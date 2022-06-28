@@ -126,7 +126,7 @@ Before builing the model, irrelavant features were removed such as -
 
 To build the model, stepwise regression modelning was performed.
 
-<b>The first model</b>
+<b>1<sup>st</sup> model</b>
 
 Predictors:
 
@@ -186,7 +186,7 @@ Observation:
 
 To reduce the linearity in the residual errors, we can perform transformations in predictors and the results.
 
-<b>The second model</b>
+<b>2<sup>nd</sup> model</b>
 
 Predictors:
 
@@ -251,7 +251,7 @@ Let's visualize the residual plot:
 
 Let's check the condition of equal variance using Levene's test:
 
-<b>statistic=18.386483526081904</b>
+<b>statistic=18.386483526081904</b><br>
 <b>pvalue=1.860245656713538e-05</b>
 
 Observation:
@@ -262,7 +262,7 @@ Observation:
 
 To reduce the linearity in the residual errors and bringing constant variance in the residual errors, we can perform transformations in predictors and the results. In addition to transformations we have used Weighted least squared Regression this time, to fit the model better.
 
-<b>The third model</b>
+<b>3<sup>rd</sup> model</b>
 
 Predictors:
 
@@ -344,7 +344,7 @@ Let's visualize the residual plot:
 
 Let's check the condition of equal variance using Levene's test:
 
-<b>statistic=2.885560933873544</b>
+<b>statistic=2.885560933873544</b><br>
 <b>pvalue=0.08948063279615048</b>
 
 Let's check the conditions of normality of this model:
