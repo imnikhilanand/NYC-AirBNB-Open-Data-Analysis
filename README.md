@@ -143,53 +143,36 @@ Results:
 
 OLS Summary:
 
-                            OLS Regression Results                            
 <table>
-<tr><td>Dep. Variable:</td>                  <td>price</td>   <td>R-squared:</td>                       <td>0.477</td>
-<tr><td>Model:</td>                        <td>OLS</td>   <td>Adj. R-squared:</td>                  <td>0.476</td></tr>
-<tr><td>Method:</td>                 <td>Least Squares</td>   <td>F-statistic:</td>                  <td>454.3 </td></tr>
-<tr><td>Date:</td>                <td>Mon, 27 Jun 2022</td>   <td>Prob (F-statistic):</td>               <td>0.00 </td></tr>
-<tr><td>Time:</td>                        <td>22:22:09</td>   <td>Log-Likelihood:</td>                <td>-14665. </td></tr>
-<tr><td>No. Observations:</td>                <td>3000</td>   <td>AIC:</td>                         <td>2.934e+04 </td></tr>
-<tr><td>Df Residuals:</td>                    <td>2993</td>   <td>BIC:</td>                         <td>2.939e+04 </td></tr>
-<tr><td>Df Model:</td>                           <td>6</td>    <td></td>                                 <td></td>     </tr>
-<tr><td>Covariance Type:</td>            <td>nonrobust</td>        <td></td>                             <td></td>     </tr>
-
+	<tr><td>Dep. Variable:</td>                  <td>price</td>   <td>R-squared:</td>                       <td>0.477</td>
+	<tr><td>Model:</td>                        <td>OLS</td>   <td>Adj. R-squared:</td>                  <td>0.476</td></tr>
+	<tr><td>Method:</td>                 <td>Least Squares</td>   <td>F-statistic:</td>                  <td>454.3 </td></tr>
+	<tr><td>Date:</td>                <td>Mon, 27 Jun 2022</td>   <td>Prob (F-statistic):</td>               <td>0.00 </td></tr>
+	<tr><td>Time:</td>                        <td>22:22:09</td>   <td>Log-Likelihood:</td>                <td>-14665. </td></tr>
+	<tr><td>No. Observations:</td>                <td>3000</td>   <td>AIC:</td>                         <td>2.934e+04 </td></tr>
+	<tr><td>Df Residuals:</td>                    <td>2993</td>   <td>BIC:</td>                         <td>2.939e+04 </td></tr>
+	<tr><td>Df Model:</td>                           <td>6</td>    <td></td>                                 <td></td>     </tr>
+	<tr><td>Covariance Type:</td>            <td>nonrobust</td>        <td></td>                             <td></td>     </tr>
 </table>
 
+<table>
+	<tr><td></td><td>coef</td><td>std err</td><td>t</td><td>P>|t|</td><td>[0.025</td><td>0.975]</td></tr>
+	<tr><td>const</td><td>-5833.4460</td><td>1499.096</td><td>-3.891</td><td>0.000</td><td>-8772.808</td><td>-2894.084</td></tr>
+	<tr><td>Entire home/apt</td><td>53.5024</td><td>1.200</td><td>44.586</td><td>0.000</td><td>51.150</td><td>55.855</td></tr>
+	<tr><td>Manhattan</td><td>20.4296</td><td>1.869</td><td>10.933</td><td>0.000</td><td>16.766</td><td>24.093</td></tr>
+	<tr><td>latitude</td><td>-46.8338</td><td>14.847</td><td>-3.155</td><td>0.002</td><td>-75.944</td><td>-17.723</td></tr>
+	<tr><td>longitude</td><td>-105.5753</td><td>15.209</td><td>-6.941</td><td>0.000</td><td>-135.397</td><td>-75.753</td></tr>
+	<tr><td>number_of_reviews</td><td>0.0469</td><td>0.015</td><td>3.186</td><td>0.001</td><td>0.018</td><td>0.076</td></tr>
+	<tr><td>calculated_host_listings_count</td><td>0.0502</td><td>0.027</td><td>1.848</td><td>0.065</td><td>-0.003</td><td>0.103</td></tr>
+</table>	
+ 
+<table>	
+	<tr><td>Omnibus:</td><td>130.288</td><td>Durbin-Watson:</td><td>2.004</td></tr>
+	<tr><td>Prob(Omnibus):</td><td>0.000</td><td>Jarque-Bera (JB):</td><td>149.226</td></tr>
+	<tr><td>Skew:</td><td>0.505</td><td>Prob(JB):</td><td>3.95e-33</td></tr>
+	<tr><td>Kurtosis:</td><td>3.416</td><td>Cond. No.</td><td>2.26e+05</td></tr>
+</table>
 
-
-                            OLS Regression Results                            
-______________________________________________________________________________ <br>
-
-Dep. Variable:                  price   R-squared:                       0.477 <br>
-Model:                            OLS   Adj. R-squared:                  0.476 <br>
-Method:                 Least Squares   F-statistic:                     454.3 <br>
-Date:                Mon, 27 Jun 2022   Prob (F-statistic):               0.00 <br>
-Time:                        22:22:09   Log-Likelihood:                -14665. <br>
-No. Observations:                3000   AIC:                         2.934e+04 <br>
-Df Residuals:                    2993   BIC:                         2.939e+04 <br>
-Df Model:                           6                                          <br>
-Covariance Type:            nonrobust                                          <br>
-______________________________________________________________________________ <br>
-
-                                     coef    std err          t      P>|t|      [0.025      0.975]
-__________________________________________________________________________________________________ <br>
-
-const                          -5833.4460   1499.096     -3.891      0.000   -8772.808   -2894.084 <br>
-Entire home/apt                   53.5024      1.200     44.586      0.000      51.150      55.855 <br>
-Manhattan                         20.4296      1.869     10.933      0.000      16.766      24.093 <br>
-latitude                         -46.8338     14.847     -3.155      0.002     -75.944     -17.723 <br>
-longitude                       -105.5753     15.209     -6.941      0.000    -135.397     -75.753 <br>
-number_of_reviews                  0.0469      0.015      3.186      0.001       0.018       0.076 <br>
-calculated_host_listings_count     0.0502      0.027      1.848      0.065      -0.003       0.103 <br>
-______________________________________________________________________________ <br>
-
-Omnibus:                      130.288   Durbin-Watson:                   2.004 <br>
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):              149.226 <br>
-Skew:                           0.505   Prob(JB):                     3.95e-33 <br>
-Kurtosis:                       3.416   Cond. No.                     2.26e+05 <br>
-______________________________________________________________________________ <br>
 
 <img src="pictures/first_iteration.jpeg" width="30%" alt="KDE_plot_price.png">
  
@@ -223,43 +206,41 @@ Results:
 - sqaured root of price
 
 
-OLS Summary:
+OLS Regression Results:
 
-                            OLS Regression Results                            
-______________________________________________________________________________ <br>
+<table>
+	<tr><td>Dep. Variable:</td>                  <td>price</td>   <td>R-squared:</td>                       <td>0.512</td>
+	<tr><td>Model:</td>                        <td>OLS</td>   <td>Adj. R-squared:</td>                  <td>0.510</td></tr>
+	<tr><td>Method:</td>                 <td>Least Squares</td>   <td>F-statistic:</td>                  <td>313.6 </td></tr>
+	<tr><td>Date:</td>                <td>Mon, 27 Jun 2022</td>   <td>Prob (F-statistic):</td>               <td>0.00</td></tr>
+	<tr><td>Time:</td>                        <td>22:27:22</td>   <td>Log-Likelihood:</td>                <td>-5610.3</td></tr>
+	<tr><td>No. Observations:</td>                <td>3000</td>   <td>AIC:</td>                         <td>1.124e+04</td></tr>
+	<tr><td>Df Residuals:</td>                    <td>2989</td>   <td>BIC:</td>                         <td>1.131e+04 </td></tr>
+	<tr><td>Df Model:</td>                           <td>10</td>    <td></td>                                 <td></td>     </tr>
+	<tr><td>Covariance Type:</td>            <td>nonrobust</td>        <td></td>                             <td></td>     </tr>
+</table>
 
-Dep. Variable:                  price   R-squared:                       0.512 <br>
-Model:                            OLS   Adj. R-squared:                  0.510 <br>
-Method:                 Least Squares   F-statistic:                     313.6 <br>
-Date:                Mon, 27 Jun 2022   Prob (F-statistic):               0.00 <br>
-Time:                        22:27:22   Log-Likelihood:                -5610.3 <br>
-No. Observations:                3000   AIC:                         1.124e+04 <br>
-Df Residuals:                    2989   BIC:                         1.131e+04 <br>
-Df Model:                          10                                          <br> 
-Covariance Type:            nonrobust                                          <br>
-______________________________________________________________________________ <br>
-
-                                       coef    std err          t      P>|t|      [0.025      0.975]
-____________________________________________________________________________________________________ <br>
-
-const                            -9.322e+04   3.45e+04     -2.705      0.007   -1.61e+05   -2.57e+04 <br>
-Entire home/apt                      2.7036      0.059     45.998      0.000       2.588       2.819 <br>
-longitude                         1415.4808    937.737      1.509      0.131    -423.194    3254.156 <br>
-latitude                          7135.9938    559.093     12.764      0.000    6039.748    8232.240 <br>
-Manhattan                            0.9104      0.096      9.457      0.000       0.722       1.099 <br>
-number_of_reviews                    0.0008      0.002      0.429      0.668      -0.003       0.004 <br>
-calculated_host_listings_count      -0.0081      0.004     -2.264      0.024      -0.015      -0.001 <br>
-longitude_2                          9.6156      6.344      1.516      0.130      -2.824      22.055 <br>
-latitude_2                         -87.6058      6.861    -12.768      0.000    -101.059     -74.152 <br>
-number_of_reviews_2               1.099e-05   1.02e-05      1.076      0.282   -9.04e-06     3.1e-05 <br>
-calculated_host_listings_count_2  3.112e-05   1.24e-05      2.516      0.012    6.87e-06    5.54e-05 <br>
-______________________________________________________________________________ <br>
-
-Omnibus:                       73.297   Durbin-Watson:                   2.017 <br>
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               85.001 <br>
-Skew:                           0.335   Prob(JB):                     3.49e-19 <br>
-Kurtosis:                       3.481   Cond. No.                     9.12e+09 <br>
-______________________________________________________________________________ <br>
+<table>
+	<tr><td></td><td>coef</td><td>std err</td><td>t</td><td>P>|t|</td><td>[0.025</td><td>0.975]</td></tr>
+	<tr><td>const</td><td>-9.322e+04</td><td>3.45e+04</td><td>-2.705</td><td>0.007</td><td>-1.61e+05</td><td>-2.57e+04</td></tr>
+	<tr><td>Entire home/apt</td><td>2.7036</td><td>0.059</td><td>45.998</td><td>0.000</td><td>2.588</td><td>2.819</td></tr>
+	<tr><td>longitude</td><td>1415.4808</td><td>937.737</td><td>1.509</td><td>0.131</td><td>-423.194</td><td>3254.156</td></tr>
+	<tr><td>latitude</td><td>7135.9938</td><td>559.093</td><td>12.764</td><td>0.000</td><td>6039.748</td><td>8232.240</td></tr>
+	<tr><td>Manhattan</td><td>0.9104</td><td>0.096</td><td>9.457</td><td>0.000</td><td>0.722</td><td>1.099</td></tr>
+	<tr><td>number_of_reviews</td><td>0.0008</td><td>0.002</td><td>0.429</td><td>0.668</td><td>-0.003</td><td>0.004</td></tr>
+	<tr><td>calculated_host_listings_count</td><td>-0.0081</td><td>0.004</td><td>-2.264</td><td>0.024</td><td>-0.015</td><td>0.001</td></tr>
+	<tr><td>longitude_2</td><td>9.6156</td><td>6.344</td><td>1.516</td><td>0.130</td><td>-2.824</td><td>22.055</td></tr>
+	<tr><td>latitude_2</td><td>-87.6058</td><td>6.861</td><td>-12.768</td><td>0.000</td><td>-101.059</td><td>-74.152</td></tr>
+	<tr><td>number_of_reviews_2</td><td>1.099e-05</td><td>1.02e-05</td><td>1.076</td><td>0.282</td><td>-9.04e-06</td><td>3.1e-05</td></tr>
+	<tr><td>calculated_host_listings_count_2</td><td>3.112e-05</td><td>1.24e-05</td><td>2.516</td><td>0.012</td><td>6.87e-06</td><td>5.54e-05</td></tr>
+</table>	
+ 
+<table>	
+	<tr><td>Omnibus:</td><td>73.297</td><td>Durbin-Watson:</td><td>2.017</td></tr>
+	<tr><td>Prob(Omnibus):</td><td>0.000</td><td>Jarque-Bera (JB):</td><td>85.001</td></tr>
+	<tr><td>Skew:</td><td>0.335</td><td>Prob(JB):</td><td>3.49e-19</td></tr>
+	<tr><td>Kurtosis:</td><td>3.481</td><td>Cond. No.</td><td>9.12e+09</td></tr>
+</table>
 
 
 <img src="pictures/second_iteration.jpeg" width="30%" alt="KDE_plot_price.png">
@@ -309,52 +290,51 @@ Results:
 
 - root under four of price
 
-OLS Summary:
+WLS Regression Resutls:
 
-                   WLS Regression Results                            
-______________________________________________________________________________ <br>
+<table>
+	<tr><td>Dep. Variable:</td>                  <td>price</td>   <td>R-squared:</td>                   <td>0.645</td>
+	<tr><td>Model:</td>                        <td>WLS</td>   <td>Adj. R-squared:</td>                  <td>0.643</td></tr>
+	<tr><td>Method:</td>                 <td>Least Squares</td>   <td>F-statistic:</td>                 <td>284.7 </td></tr>
+	<tr><td>Date:</td>                <td>Mon, 27 Jun 2022</td>   <td>Prob (F-statistic):</td>          <td>0.00</td></tr>
+	<tr><td>Time:</td>                        <td>22:47:10</td>   <td>Log-Likelihood:</td>              <td>-7739.2</td></tr>
+	<tr><td>No. Observations:</td>                <td>3000</td>   <td>AIC:</td>                         <td>1.552e+04</td></tr>
+	<tr><td>Df Residuals:</td>                    <td>2980</td>   <td>BIC:</td>                         <td>1.564e+04 </td></tr>
+	<tr><td>Df Model:</td>                           <td>19</td>  <td></td>                             <td></td></tr>
+	<tr><td>Covariance Type:</td>            <td>nonrobust</td>   <td></td>                             <td></td></tr>
+</table>
 
-Dep. Variable:                  price   R-squared:                       0.645 <br>
-Model:                            WLS   Adj. R-squared:                  0.643 <br>
-Method:                 Least Squares   F-statistic:                     284.7 <br>
-Date:                Mon, 27 Jun 2022   Prob (F-statistic):               0.00 <br>
-Time:                        22:47:10   Log-Likelihood:                -7739.2 <br>
-No. Observations:                3000   AIC:                         1.552e+04 <br>
-Df Residuals:                    2980   BIC:                         1.564e+04 <br>
-Df Model:                          19                                          <br>
-Covariance Type:            nonrobust                                          <br>
-______________________________________________________________________________ <br>
-
-                                       coef    std err          t      P>|t|      [0.025      0.975] <br>
-____________________________________________________________________________________________________ <br>
-
-const                            -9126.3851   1430.266     -6.381      0.000   -1.19e+04   -6321.976 <br>
-Entire home/apt                      0.4937      0.011     45.199      0.000       0.472       0.515 <br>
-number_of_reviews                   -1.0537      0.184     -5.726      0.000      -1.415      -0.693 <br>
-calculated_host_listings_count      -1.0105      1.327     -0.761      0.447      -3.613       1.592 <br>
-longitude_2                         -2.1726      0.764     -2.844      0.004      -3.671      -0.675 <br>
-latitude_2                          23.6591      1.271     18.621      0.000      21.168      26.150 <br>
-number_of_reviews_2               1.236e-05   2.72e-06      4.551      0.000    7.04e-06    1.77e-05 <br>
-calculated_host_listings_count_2     0.0003    2.3e-05     10.968      0.000       0.000       0.000 <br>
-longitude_3                         -0.0196      0.007     -2.846      0.004      -0.033      -0.006 <br>
-latitude_3                          -0.3873      0.021    -18.629      0.000      -0.428      -0.347 <br>
-calculated_host_listings_count_3 -6.423e-07   6.95e-08     -9.244      0.000   -7.79e-07   -5.06e-07 <br>
-longitude_chlc                       0.0489      0.015      3.319      0.001       0.020       0.078 <br>
-latitude_number_of_reviews           0.0454      0.008      5.717      0.000       0.030       0.061 <br>
-latitude_chls                        0.1133      0.017      6.712      0.000       0.080       0.146 <br>
-number_of_reviews_chls            3.562e-08   1.26e-08      2.835      0.005     1.1e-08    6.03e-08 <br>
-manhattan_entire_apt_num_reviews    -0.0022      0.001     -3.214      0.001      -0.003      -0.001 <br>
-manhattan_entire_apt_available       0.0006   8.02e-05      7.405      0.000       0.000       0.001 <br>
-manhattan_long_lat                 -8.5e-05   5.13e-06    -16.559      0.000   -9.51e-05   -7.49e-05 <br>
-entire_home_long_lat_manhattan    5.484e-05   6.46e-06      8.485      0.000    4.22e-05    6.75e-05 <br>
-long_2_lat_2_number_of_reviews   -8.766e-08   1.71e-08     -5.128      0.000   -1.21e-07   -5.41e-08 <br>
-______________________________________________________________________________<br>
-
-Omnibus:                     1170.517   Durbin-Watson:                   1.884 <br>
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):           248821.793 <br>
-Skew:                          -0.667   Prob(JB):                         0.00 <br>
-Kurtosis:                      47.596   Cond. No.                     1.21e+14 <br>
-______________________________________________________________________________<br>
+<table>
+	<tr><td></td><td>coef</td><td>std err</td><td>t</td><td>P>|t|</td><td>[0.025</td><td>0.975]</td></tr>
+	<tr><td>const</td><td>-9126.3851</td><td>1430.266</td><td>-6.381</td><td>0.000</td><td>-1.19e+04</td><td>-6321.976</td></tr>
+	<tr><td>Entire home/apt</td><td>0.4937</td><td>0.011</td><td>45.199</td><td>0.000</td><td>0.472</td><td>0.515</td></tr>
+	<tr><td>number_of_reviews</td><td>-1.0537</td><td>0.184</td><td>-5.726</td><td>0.000</td><td>-1.415</td><td>-0.693</td></tr>
+	<tr><td>calculated_host_listings_count</td><td>-1.0105</td><td>1.327</td><td>-0.761</td><td>0.447</td><td>-3.613</td><td>1.592</td></tr>
+	<tr><td>longitude_2</td><td>-2.1726</td><td>0.764</td><td>-2.844</td><td>0.004</td><td>-3.671</td><td>-0.675</td></tr>
+	<tr><td>latitude_2</td><td>23.6591</td><td>1.271</td><td>18.621</td><td>0.000</td><td>21.168</td><td>26.150</td></tr>
+	<tr><td>number_of_reviews_2</td><td>1.236e-05</td><td>2.72e-06</td><td>4.551</td><td>0.000</td><td>7.04e-06</td><td>1.77e-05</td></tr>
+	<tr><td>calculated_host_listings_count_2</td><td>0.0003</td><td>2.3e-05</td><td>10.968</td><td>0.000</td><td>0.000</td><td>0.000</td></tr>
+	<tr><td>longitude_3</td><td>-0.0196</td><td>0.007</td><td>-2.846</td><td>0.004</td><td>-0.033</td><td>-0.006</td></tr>
+	<tr><td>latitude_3</td><td>-0.3873</td><td>0.021</td><td>-18.629</td><td>0.000</td><td>-0.428</td><td>-0.347</td></tr>
+	<tr><td>calculated_host_listings_count_3</td><td>-6.423e-07</td><td>6.95e-08</td><td>-9.244</td><td>0.000</td><td>-7.79e-07</td><td>-5.06e-07</td></tr>
+	<tr><td>longitude_chlc</td><td>0.0489</td><td>0.015</td><td>3.319</td><td>0.001</td><td>0.020</td><td>0.078</td></tr>
+	<tr><td>latitude_number_of_reviews</td><td>0.0454</td><td>0.008</td><td>5.717</td><td>0.000</td><td>0.030</td><td>0.061</td></tr>
+	<tr><td>latitude_chls</td><td>0.1133</td><td>0.017</td><td>6.712</td><td>0.000</td><td>0.080</td><td>0.146</td></tr>
+	<tr><td>number_of_reviews_chls</td><td>3.562e-08</td><td>1.26e-08</td><td>2.835</td><td>0.005</td><td>1.1e-08</td><td>6.03e-08</td></tr>
+	<tr><td>manhattan_entire_apt_num_reviews</td><td>-0.0022</td><td>0.001</td><td>-3.214</td><td>0.001</td><td>-0.003</td><td>-0.001</td></tr>
+	<tr><td>manhattan_entire_apt_available</td><td>0.0006</td><td>8.02e-05</td><td>7.405</td><td>0.000</td><td>0.000</td><td>0.001</td></tr>
+	<tr><td>manhattan_long_lat</td><td>-8.5e-05</td><td>5.13e-06</td><td>-16.559</td><td>0.000</td><td>-9.51e-05</td><td>-7.49e-05</td></tr>
+	<tr><td>entire_home_long_lat_manhattan</td><td>5.484e-05</td><td>6.46e-06</td><td>8.485</td><td>0.000</td><td>4.22e-05</td><td>6.75e-05</td></tr>
+	<tr><td>long_2_lat_2_number_of_reviews</td><td>-8.766e-08</td><td>1.71e-08</td><td>-5.128</td><td>0.000</td><td>-1.21e-07</td><td>-5.41e-08</td></tr>
+	
+</table>	
+ 
+<table>	
+	<tr><td>Omnibus:</td><td>1170.517</td><td>Durbin-Watson:</td><td>1.884</td></tr>
+	<tr><td>Prob(Omnibus):</td><td>0.000</td><td>Jarque-Bera (JB):</td><td>248821.793</td></tr>
+	<tr><td>Skew:</td><td>-0.667</td><td>Prob(JB):</td><td>0.00</td></tr>
+	<tr><td>Kurtosis:</td><td>47.596</td><td>Cond. No.</td><td>1.21e+14</td></tr>
+</table>
 
 <img src="pictures/third_iteration.jpeg" width="30%" alt="KDE_plot_price.png">
  
