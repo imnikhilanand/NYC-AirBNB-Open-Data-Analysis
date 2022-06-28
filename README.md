@@ -180,7 +180,7 @@ ______________________________________________________________________________ <
  
 Let's visualize the residual plot:
 
-<img src="pictures/first_iteration_residual.jpeg" width="30%" alt="KDE_plot_price.png">
+<img src="pictures/first_iteration_residual.jpeg" width="70%" alt="KDE_plot_price.png">
 
 Observation:
 
@@ -251,7 +251,7 @@ ______________________________________________________________________________ <
  
 Let's visualize the residual plot:
 
-<img src="pictures/second_iteration_residuals.jpeg" width="30%" alt="KDE_plot_price.png">
+<img src="pictures/second_iteration_residuals.jpeg" width="70%" alt="KDE_plot_price.png">
 
 Let's check the condition of equal variance using Levene's test:
 
@@ -345,7 +345,7 @@ ______________________________________________________________________________<b
  
 Let's visualize the residual plot:
 
-<img src="pictures/third_iteration_residuals.jpeg" width="30%" alt="KDE_plot_price.png">
+<img src="pictures/third_iteration_residuals.jpeg" width="70%" alt="KDE_plot_price.png">
 
 Let's check the condition of equal variance using Levene's test:
 
@@ -354,7 +354,7 @@ Let's check the condition of equal variance using Levene's test:
 
 Let's check the conditions of normality of this model:
 
-<img src="pictures/third_iteration_normal.jpeg" width="30%" alt="KDE_plot_price.png">
+<img src="pictures/third_iteration_normal.jpeg" width="70%" alt="KDE_plot_price.png">
 
 
 Observation:
