@@ -176,11 +176,11 @@ Skew:                           0.505   Prob(JB):                     3.95e-33 <
 Kurtosis:                       3.416   Cond. No.                     2.26e+05 <br>
 ______________________________________________________________________________ <br>
 
-<img src="pictures/first_iteration.jpeg" alt="KDE_plot_price.png">
+<img src="pictures/first_iteration.jpeg" width="30%" alt="KDE_plot_price.png">
  
 Let's visualize the residual plot:
 
-<img src="pictures/first_iteration_residual.jpeg" alt="KDE_plot_price.png">
+<img src="pictures/first_iteration_residual.jpeg" width="30%" alt="KDE_plot_price.png">
 
 Observation:
 
@@ -247,11 +247,11 @@ Kurtosis:                       3.481   Cond. No.                     9.12e+09 <
 ______________________________________________________________________________ <br>
 
 
-<img src="pictures/second_iteration.jpeg" alt="KDE_plot_price.png">
+<img src="pictures/second_iteration.jpeg" width="30%" alt="KDE_plot_price.png">
  
 Let's visualize the residual plot:
 
-<img src="pictures/second_iteration_residuals.jpeg" alt="KDE_plot_price.png">
+<img src="pictures/second_iteration_residuals.jpeg" width="30%" alt="KDE_plot_price.png">
 
 Let's check the condition of equal variance using Levene's test:
 
@@ -335,17 +335,17 @@ entire_home_long_lat_manhattan    5.484e-05   6.46e-06      8.485      0.000    
 long_2_lat_2_number_of_reviews   -8.766e-08   1.71e-08     -5.128      0.000   -1.21e-07   -5.41e-08 <br>
 ______________________________________________________________________________<br>
 
-Omnibus:                     1170.517   Durbin-Watson:                   1.884
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):           248821.793
-Skew:                          -0.667   Prob(JB):                         0.00
-Kurtosis:                      47.596   Cond. No.                     1.21e+14
+Omnibus:                     1170.517   Durbin-Watson:                   1.884 <br>
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):           248821.793 <br>
+Skew:                          -0.667   Prob(JB):                         0.00 <br>
+Kurtosis:                      47.596   Cond. No.                     1.21e+14 <br>
 ______________________________________________________________________________<br>
 
-<img src="pictures/third_iteration.jpeg" alt="KDE_plot_price.png">
+<img src="pictures/third_iteration.jpeg" width="30%" alt="KDE_plot_price.png">
  
 Let's visualize the residual plot:
 
-<img src="pictures/third_iteration_residuals.jpeg" alt="KDE_plot_price.png">
+<img src="pictures/third_iteration_residuals.jpeg" width="30%" alt="KDE_plot_price.png">
 
 Let's check the condition of equal variance using Levene's test:
 
@@ -354,7 +354,7 @@ Let's check the condition of equal variance using Levene's test:
 
 Let's check the conditions of normality of this model:
 
-<img src="pictures/third_iteration_normal.jpeg" alt="KDE_plot_price.png">
+<img src="pictures/third_iteration_normal.jpeg" width="30%" alt="KDE_plot_price.png">
 
 
 Observation:
