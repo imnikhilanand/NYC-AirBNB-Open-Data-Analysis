@@ -143,8 +143,10 @@ Results:
 
 OLS Summary:
 
+
                             OLS Regression Results                            
-==============================================================================
+______________________________________________________________________________
+
 Dep. Variable:                  price   R-squared:                       0.477
 Model:                            OLS   Adj. R-squared:                  0.476
 Method:                 Least Squares   F-statistic:                     454.3
@@ -154,9 +156,11 @@ No. Observations:                3000   AIC:                         2.934e+04
 Df Residuals:                    2993   BIC:                         2.939e+04
 Df Model:                           6                                         
 Covariance Type:            nonrobust                                         
-==================================================================================================
+______________________________________________________________________________
+
                                      coef    std err          t      P>|t|      [0.025      0.975]
---------------------------------------------------------------------------------------------------
+__________________________________________________________________________________________________
+
 const                          -5833.4460   1499.096     -3.891      0.000   -8772.808   -2894.084
 Entire home/apt                   53.5024      1.200     44.586      0.000      51.150      55.855
 Manhattan                         20.4296      1.869     10.933      0.000      16.766      24.093
@@ -164,12 +168,13 @@ latitude                         -46.8338     14.847     -3.155      0.002     -
 longitude                       -105.5753     15.209     -6.941      0.000    -135.397     -75.753
 number_of_reviews                  0.0469      0.015      3.186      0.001       0.018       0.076
 calculated_host_listings_count     0.0502      0.027      1.848      0.065      -0.003       0.103
-==============================================================================
+______________________________________________________________________________
+
 Omnibus:                      130.288   Durbin-Watson:                   2.004
 Prob(Omnibus):                  0.000   Jarque-Bera (JB):              149.226
 Skew:                           0.505   Prob(JB):                     3.95e-33
 Kurtosis:                       3.416   Cond. No.                     2.26e+05
-==============================================================================
+______________________________________________________________________________
 
 <img src="pictures/first_iteration.jpeg" alt="KDE_plot_price.png">
  
@@ -206,7 +211,8 @@ Results:
 OLS Summary:
 
                             OLS Regression Results                            
-==============================================================================
+______________________________________________________________________________
+
 Dep. Variable:                  price   R-squared:                       0.512
 Model:                            OLS   Adj. R-squared:                  0.510
 Method:                 Least Squares   F-statistic:                     313.6
@@ -216,9 +222,11 @@ No. Observations:                3000   AIC:                         1.124e+04
 Df Residuals:                    2989   BIC:                         1.131e+04
 Df Model:                          10                                         
 Covariance Type:            nonrobust                                         
-====================================================================================================
+______________________________________________________________________________
+
                                        coef    std err          t      P>|t|      [0.025      0.975]
-----------------------------------------------------------------------------------------------------
+____________________________________________________________________________________________________
+
 const                            -9.322e+04   3.45e+04     -2.705      0.007   -1.61e+05   -2.57e+04
 Entire home/apt                      2.7036      0.059     45.998      0.000       2.588       2.819
 longitude                         1415.4808    937.737      1.509      0.131    -423.194    3254.156
@@ -230,12 +238,13 @@ longitude_2                          9.6156      6.344      1.516      0.130    
 latitude_2                         -87.6058      6.861    -12.768      0.000    -101.059     -74.152
 number_of_reviews_2               1.099e-05   1.02e-05      1.076      0.282   -9.04e-06     3.1e-05
 calculated_host_listings_count_2  3.112e-05   1.24e-05      2.516      0.012    6.87e-06    5.54e-05
-==============================================================================
+______________________________________________________________________________
+
 Omnibus:                       73.297   Durbin-Watson:                   2.017
 Prob(Omnibus):                  0.000   Jarque-Bera (JB):               85.001
 Skew:                           0.335   Prob(JB):                     3.49e-19
 Kurtosis:                       3.481   Cond. No.                     9.12e+09
-==============================================================================
+______________________________________________________________________________
 
 
 <img src="pictures/second_iteration.jpeg" alt="KDE_plot_price.png">
@@ -288,7 +297,8 @@ Results:
 OLS Summary:
 
                    WLS Regression Results                            
-==============================================================================
+______________________________________________________________________________
+
 Dep. Variable:                  price   R-squared:                       0.645
 Model:                            WLS   Adj. R-squared:                  0.643
 Method:                 Least Squares   F-statistic:                     284.7
@@ -298,9 +308,11 @@ No. Observations:                3000   AIC:                         1.552e+04
 Df Residuals:                    2980   BIC:                         1.564e+04
 Df Model:                          19                                         
 Covariance Type:            nonrobust                                         
-====================================================================================================
+______________________________________________________________________________
+
                                        coef    std err          t      P>|t|      [0.025      0.975]
-----------------------------------------------------------------------------------------------------
+____________________________________________________________________________________________________
+
 const                            -9126.3851   1430.266     -6.381      0.000   -1.19e+04   -6321.976
 Entire home/apt                      0.4937      0.011     45.199      0.000       0.472       0.515
 number_of_reviews                   -1.0537      0.184     -5.726      0.000      -1.415      -0.693
@@ -321,12 +333,38 @@ manhattan_entire_apt_available       0.0006   8.02e-05      7.405      0.000    
 manhattan_long_lat                 -8.5e-05   5.13e-06    -16.559      0.000   -9.51e-05   -7.49e-05
 entire_home_long_lat_manhattan    5.484e-05   6.46e-06      8.485      0.000    4.22e-05    6.75e-05
 long_2_lat_2_number_of_reviews   -8.766e-08   1.71e-08     -5.128      0.000   -1.21e-07   -5.41e-08
-==============================================================================
+______________________________________________________________________________
+
 Omnibus:                     1170.517   Durbin-Watson:                   1.884
 Prob(Omnibus):                  0.000   Jarque-Bera (JB):           248821.793
 Skew:                          -0.667   Prob(JB):                         0.00
 Kurtosis:                      47.596   Cond. No.                     1.21e+14
-==============================================================================
+______________________________________________________________________________
+
+<img src="pictures/third_iteration.jpeg" alt="KDE_plot_price.png">
+ 
+Let's visualize the residual plot:
+
+<img src="pictures/third_iteration_residuals.jpeg" alt="KDE_plot_price.png">
+
+Let's check the condition of equal variance using Levene's test:
+
+<b>statistic=2.885560933873544</b>
+<b>pvalue=0.08948063279615048</b>
+
+Let's check the conditions of normality of this model:
+
+<img src="pictures/third_iteration_normal.jpeg" alt="KDE_plot_price.png">
 
 
+Observation:
 
+- The trend in the residuals have been removed significatly. There are some data points which have higher residual errors. 
+- The constant vaiance condition is met in this case. It can be seen from the Levene's test.
+- The normality condition of residuals is not met as there are some residuals which are outlier
+
+
+Future Score:
+
+- We can remove the outlier or high leverage points to further improve the model.
+- We can explore Tree based or Neural network based techniques to improve the model further.

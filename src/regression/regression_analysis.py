@@ -416,6 +416,7 @@ X["manhattan_entire_apt_num_reviews"] = X["Entire home/apt"]*X['Manhattan']*X['n
 X["manhattan_entire_apt_available"] = X["Entire home/apt"]*X['Manhattan']*X['availability_365']
 X["manhattan_long_lat"] = X["longitude"]*X['Manhattan']*X['latitude']
 X["entire_home_long_lat_manhattan"] = X["longitude"]*X['Entire home/apt']*X['latitude']*X['Manhattan']
+X["long_2_lat_2_number_of_reviews"] = X["longitude_2"]*X["latitude_2"]*X["number_of_reviews"]
 
 # transforming the results 
 y_1_4 = np.power(data_sample['price'],1/4)
@@ -549,7 +550,7 @@ ref_3['y_pred'] = est_8.predict(X[['const',
                                   'long_2_lat_2_number_of_reviews']])
 
 """ check for linearity - residual plot with response """
-plt.ylim(-150, 150)
+plt.ylim(-20, 20)
 plt.scatter(ref_3['y'], ref_3['residual'])
 plt.axhline(y = 0.0, color='black', linestyle = '--')
 plt.plot()
